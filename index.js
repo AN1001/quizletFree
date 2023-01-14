@@ -1,3 +1,4 @@
+//eraseCookie("AllFC")
 if(!getCookie("AllFC")){
     setCookie("AllFC",null);
 }
@@ -17,9 +18,10 @@ getCookie("AllFC").split("`").forEach(function(element){
         el = element.split(",")
         let x = document.createElement("div")
         x.classList.add("set")
-        x.textContent = el[0]
+        x.id = el;
+        x.textContent = el[0].length>10?el[0].slice(0,7)+"...":el[0]
         x.addEventListener("click", function(){
-            
+            newSet.style.display = "none";
         });
         console.log(el[0])
         sidebar.appendChild(x)
@@ -47,15 +49,18 @@ addBtn2.addEventListener("click", function(){
     setCookie("AllFC", getCookie("AllFC")+"`"+c);
     let x = document.createElement("div")
     x.classList.add("set")
-    x.textContent = c[0]
+    x.textContent = c[0].length>11?c[0].slice(0,10)+"...":c[0]
     sidebar.appendChild(x)
+    x.id = el;
     console.log(getCookie("AllFC").split("`"))
     x.addEventListener("click", function(){
-        
+        newSet.style.display = "none";
     });
 });
 
+function showFlashCards(){
 
+}
 
 function setCookie(name,value) {
     var expires = "";

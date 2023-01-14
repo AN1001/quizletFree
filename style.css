@@ -2,7 +2,7 @@ body, html {
     padding: 0;
     margin: 0;
     background-color: #0E1013;
-    font-family: Tahoma, sans-serif;
+    font-family: 'Roboto Mono', monospace;
 }
 
 h2{
@@ -16,7 +16,7 @@ h2{
 
 #sidebar1{
     width: 200px;
-    height: 100%;
+    min-height: 100%;
     position: absolute;
     top: 0;
     background: #202124;
@@ -32,8 +32,12 @@ h2{
     font-size: 1.5em;
     padding-top: 5px;
     text-align: center;
-    color: whitesmoke;
-    line-height: 85px
+    color: #3700B3;
+    font-weight: 900;
+    line-height: 85px;
+
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 #addSet{
@@ -44,7 +48,7 @@ h2{
 }
 
 #newSet{
-    width:calc(100% - 200px);
+    width:calc(100% - 400px);
     height: 400px;
     margin-left: 200px;
     display: flex;
@@ -59,6 +63,7 @@ h2{
 input{
     height: 50px;
     width: inherit; 
+    min-width: 300px;
     padding-left: 20px;
     border-radius: 0.4em;
     border: none;
@@ -78,4 +83,37 @@ input{
     border: 2px solid #3700B3;
     color: whitesmoke;
     font-size: 1.5em;
+}
+
+#flashCards{
+    width:calc(100% - 400px);
+    height: 400px;
+    margin-left: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 100px 0 100px;
+}
+
+#flashCards{
+    margin-left: 200px;
+    display:flex;
+    align-items: center;
+}
+
+#flashCard{
+    margin: 30px;
+    height: 700px;
+    width: 500px;
+    background: #202124;
+    border-radius: 0.5em;
+}
+
+#prev, #next {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
+    background: #17181B;
+    border: 2px solid #3700B3;
+    border-radius: 0.4em;
+    color:#3700B3;
 }
