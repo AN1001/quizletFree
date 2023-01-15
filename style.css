@@ -14,6 +14,10 @@ h2{
     text-decoration: underline;
 }
 
+h3{
+    font-size: 0.7em;
+}
+
 #sidebar1{
     width: 200px;
     min-height: 100%;
@@ -92,17 +96,12 @@ input{
 
 #flashCards{
     width:calc(100% - 400px);
-    height: 400px;
+    height: 500px;
     margin-left: 200px;
     display: flex;
     flex-direction: column;
     padding: 0 100px 0 100px;
-}
-
-#flashCards{
-    margin-left: 200px;
     margin-top: 30px;
-    display:flex;
     align-items: center;
 }
 
@@ -113,9 +112,8 @@ input{
     margin-bottom: -25px;
 }
 
-#flashCard{
-    margin: 30px;
-    height: 700px;
+#flashCard, #flashCardBack{
+    height: 300px;
     width: 500px;
     background: #202124;
     border-radius: 0.5em;
@@ -133,6 +131,10 @@ input{
     animation-iteration-count: 1;
     animation-timing-function: ease-in;
     animation-duration: 0.25s;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #prev, #next {
@@ -143,6 +145,43 @@ input{
     border: 2px solid #3700B3;
     border-radius: 0.4em;
     color:#3700B3;
+
+    background: url(https://icones.pro/wp-content/uploads/2021/06/icone-fleche-gauche-violet.png);
+    background-size: 50px;
+    background-position: center;
+}
+
+.flip-box {
+    background-color: transparent;
+    width: 500px;
+    height: 300px;
+    perspective: 1000px;
+    margin: 30px 0 0 0;
+}
+  
+.flip-box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+  
+.flip {
+    transform: rotateX(180deg);
+}
+  
+.flip-box-front, .flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+  
+.flip-box-back {
+    transform: rotateX(180deg);
 }
 
 @media only screen and (max-width:780px) {
@@ -168,6 +207,11 @@ input{
         animation-duration: 0.25s;
         padding: 20px;
     }
+
+    #flashCardsName{
+        font-size: 1em;
+    }
+
     #sidebar1{
         overflow: auto;
         white-space: nowrap;
@@ -175,11 +219,35 @@ input{
 
     #flashCards {
         margin-left: 0;
+        width: unset; 
         margin: 0;
         margin-top: 130px;
         display: flex;
         align-items: center;
     }
+
+    h3{
+        font-size: 0.4em;
+    }
+
+    #flashCardsName{
+        width: 300px;
+    }
+
+    .flip-box{
+        width: 300px;
+        height: 185px;
+    }
+
+    #flashCard, #flashCardBack{
+        height: 190px;
+        width: 300px;
+    }
+
+}
+
+#buttons{
+    margin-top: 15px;
 }
 
 @keyframes fadeInOpacity {

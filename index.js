@@ -11,9 +11,15 @@ const addBtn = document.getElementById("addSet")
 const newSet = document.getElementById("newSet")
 const addBtn2 = document.getElementById("confirmAdd")
 const sidebar = document.getElementById("sidebar1")
+
 const flashCards = document.getElementById("flashCards")
 const flashCard = document.getElementById("flashCard")
+const flashCardBack = document.getElementById("flashCardBack")
+const flashCardContent = document.getElementById("flashCardContent")
+const flashCardBackContent = document.getElementById("flashCardBackContent")
+
 const flashCardsName = document.getElementById("flashCardsName")
+const flipper = document.getElementById("flipper")
 
 
 const fcF = document.getElementById("fcF")
@@ -25,7 +31,6 @@ const next = document.getElementById("next")
 newSet.style.display = "none";
 flashCards.style.display = "none";
 
-console.log(getCookie("AllFC").split("`"))
 getCookie("AllFC").split("`").forEach(function(element){
     if(element){
         el = element.split(",")
@@ -36,7 +41,6 @@ getCookie("AllFC").split("`").forEach(function(element){
         x.addEventListener("click", function(e){
             showFlashCards(e.target)
         });
-        console.log(el[0])
         sidebar.appendChild(x)
     }
 });
@@ -47,24 +51,22 @@ addBtn.addEventListener("click", function(){
 });
 
 prev.addEventListener("click", function(){
-    console.log("clicked")
     if(currentFlashCard > 0){
         currentFlashCard-=2
         frontFaceVisible = true
-        if(frontFaceVisible) flashCard.textContent = data[currentFlashCard+1]
-        if(!frontFaceVisible) flashCard.textContent = data[currentFlashCard+2]
+        flipper.classList.remove("flip");
+        if(frontFaceVisible) flashCardContent.textContent = data[currentFlashCard+1]
+        if(!frontFaceVisible) flashCardContent.textContent = data[currentFlashCard+2]
     }
-
-    flashCard.style.display = "none";
-    flashCard.style.display = "unset";
 });
 
 next.addEventListener("click", function(){
     if(currentFlashCard < flashCardLen-2){
         currentFlashCard+=2
         frontFaceVisible = true
-        if(frontFaceVisible) flashCard.textContent = data[currentFlashCard+1]
-        if(!frontFaceVisible) flashCard.textContent = data[currentFlashCard+2]
+        flipper.classList.remove("flip");
+        if(frontFaceVisible) flashCardContent.textContent = data[currentFlashCard+1];
+        if(!frontFaceVisible) flashCardContent.textContent = data[currentFlashCard+2];
     }
 });
 
@@ -80,14 +82,12 @@ addBtn2.addEventListener("click", function(){
     });
 
     c.unshift(title)
-    console.log(c)
 
     setCookie("AllFC", getCookie("AllFC")+"`"+c);
     let x = document.createElement("div")
     x.classList.add("set")
     x.textContent = title.length>10?title.slice(0,8)+"...":title
     sidebar.appendChild(x)
-    console.log(getCookie("AllFC").split("`"))
     x.addEventListener("click", function(e){
         showFlashCards(e.target)
     });
@@ -95,10 +95,16 @@ addBtn2.addEventListener("click", function(){
     x.id = y[y.length - 1];
 });
 
-flashCard.addEventListener("click", function(){
+flipper.addEventListener("click", function(){
     frontFaceVisible = !frontFaceVisible
-    if(frontFaceVisible) flashCard.textContent = data[currentFlashCard+1]
-    if(!frontFaceVisible) flashCard.textContent = data[currentFlashCard+2]
+    if(frontFaceVisible){
+        flashCardContent.textContent = data[currentFlashCard+1];
+        flipper.classList.remove("flip");
+    }
+    if(!frontFaceVisible){
+        flashCardBackContent.textContent = data[currentFlashCard+2];
+        flipper.classList.add("flip");
+    }
 });
 
 function showFlashCards(target){
@@ -108,9 +114,8 @@ function showFlashCards(target){
     flashCardsName.textContent = data[0].length>25?data[0].slice(0,22)+"...":data[0]
     currentFlashCard = 0
     flashCardLen = data.length-1;
-    console.log(data);
     frontFaceVisible = true
-    flashCard.textContent = data[currentFlashCard+1]
+    flashCardContent.textContent = data[currentFlashCard+1]
 }
 
 function setCookie(name,value) {

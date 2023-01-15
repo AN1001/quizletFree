@@ -16,10 +16,18 @@
 		<div id="main">
 			<div id="flashCards">
 				<div id="flashCardsName">Arnavs Set</div>
-				<div id="flashCard"></div>
+				<div class="flip-box">
+					<div class="flip-box-outer">
+						<div id="flipper" class="flip-box-inner">
+							<div id="flashCard" class="flip-box-front"> <h3 id="flashCardContent"></h3> </div>
+							<div id="flashCardBack" class="flip-box-back"> <h3 id="flashCardBackContent"></h3> </div>
+						</div>
+					</div>
+				</div>
+
 				<div id="buttons">
-					<button id="prev" style="transform: rotate(180deg);">➜</button>
-					<button id="next">➜</button>
+					<button id="prev"></button>
+					<button id="next" style="transform: rotate(180deg);"></button>
 				</div>
 			</div>
 			<div id="newSet">
