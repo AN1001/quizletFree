@@ -23,7 +23,7 @@ h2{
 }
 
 .set{
-    width: 180px;
+    min-width: 180px;
     margin: 6.5px;
     height: 90px;
     background: #17181B;
@@ -54,6 +54,11 @@ h2{
     display: flex;
     flex-direction: column;
     padding: 0 100px 0 100px;
+
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-timing-function: ease-in;
+    animation-duration: 0.25s;
 }
 
 #setNameInput{
@@ -62,7 +67,7 @@ h2{
 
 input{
     height: 50px;
-    width: inherit; 
+    width: 100%; 
     min-width: 300px;
     padding-left: 20px;
     border-radius: 0.4em;
@@ -96,8 +101,16 @@ input{
 
 #flashCards{
     margin-left: 200px;
+    margin-top: 30px;
     display:flex;
     align-items: center;
+}
+
+#flashCardsName{
+    color: #3700B3;
+    font-size: 2em;
+    width: 500px;
+    margin-bottom: -25px;
 }
 
 #flashCard{
@@ -106,6 +119,20 @@ input{
     width: 500px;
     background: #202124;
     border-radius: 0.5em;
+    color: whitesmoke;
+    font-size: 2em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 5px 15px 10px 15px;
+    -webkit-user-select: none;
+    user-select: none;
+
+    opacity: 1;
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 0.25s;
 }
 
 #prev, #next {
@@ -116,4 +143,50 @@ input{
     border: 2px solid #3700B3;
     border-radius: 0.4em;
     color:#3700B3;
+}
+
+@media only screen and (max-width:780px) {
+    #sidebar1{
+        width: 100%;
+        position: absolute;
+        min-height: min-content;
+        height: auto !important;
+        display: flex;
+        top: 0;
+        background: #202124;
+    }
+    #newSet {
+        width: 80%;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 110px;
+        margin-left: 0;
+        opacity: 1;
+        animation-name: fadeInOpacity;
+        animation-timing-function: ease-in;
+        animation-duration: 0.25s;
+        padding: 20px;
+    }
+    #sidebar1{
+        overflow: auto;
+        white-space: nowrap;
+    }
+
+    #flashCards {
+        margin-left: 0;
+        margin: 0;
+        margin-top: 130px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
