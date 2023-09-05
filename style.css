@@ -19,6 +19,15 @@ h3{
     font-size: 0.7em;
 }
 
+h4{
+    margin: 0;
+    padding: 10px;
+    padding-top: 10px;
+    color: #6e6f6f;
+    font-size: 0.75em;
+    padding-top: 0px;
+}
+
 #sidebar1{
     width: 200px;
     min-height: 100%;
