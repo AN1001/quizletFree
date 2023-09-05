@@ -79,16 +79,23 @@ input{
     color: whitesmoke;
 }
 
+#finalLine{
+    display: flex;
+}
+
 #confirmAdd{
     height: 50px;
     width: 100px;
-    border-radius: 0.4em;
+    border-radius: 0.15em;
     border: none;
     margin: 10px;
     background: #202124;
-    border: 2px solid #3700B3;
     color: whitesmoke;
     font-size: 1.5em;
+}
+
+#confirmAdd:hover{
+    color: yellowgreen;
 }
 
 #flashCards{
