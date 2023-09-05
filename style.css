@@ -10,8 +10,7 @@ h2{
     font-size: 3em;
     margin-left: 10px;
     line-height: 0px;
-    color: #202124;
-    text-decoration: underline;
+    color: whitesmoke;
 }
 
 h3{
@@ -73,11 +72,10 @@ input{
     width: 100%; 
     min-width: 300px;
     padding-left: 20px;
-    border-radius: 0.4em;
+    border-radius: 0.25em;
     border: none;
     margin: 10px;
     background: #202124;
-    border: 2px solid #3700B3;
     color: whitesmoke;
 }
 
